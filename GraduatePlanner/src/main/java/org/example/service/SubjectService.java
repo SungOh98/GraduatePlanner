@@ -1,0 +1,13 @@
+package org.example.service;
+
+
+import org.example.domain.Subject;
+import org.example.dto.SubjectDto;
+import org.springframework.stereotype.Service;
+
+@Service
+public interface SubjectService {
+    void create(SubjectDto subjectDto);
+
+
+}
