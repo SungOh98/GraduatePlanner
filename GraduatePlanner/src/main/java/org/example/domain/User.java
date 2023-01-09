@@ -5,12 +5,6 @@ public class User {
     private String name;
     private String department;
 
-//    public User(Long id, String name, String department) {
-//        this.id = id;
-//        this.name = name;
-//        this.department = department;
-//    }
-
     public Long getId() {
         return id;
     }
