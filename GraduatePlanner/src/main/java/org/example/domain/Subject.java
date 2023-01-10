@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class Subject {
-    private int id;
+    private Long id;
     private int credit;
     private String type;
     private String name;

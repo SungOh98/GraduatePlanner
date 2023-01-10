@@ -37,6 +37,10 @@ public class StudentServiceImpl implements StudentService{
         return studentMapper.getAll();
     }
 
+    public Student getStudentByAccount(String account) {
+        return studentMapper.getByAccount(account);
+    }
+
     public void updateStudent() {
 
     }

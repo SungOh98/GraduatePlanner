@@ -3,10 +3,9 @@ package org.example.controller;
 import org.example.dto.SubjectDto;
 import org.example.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/subjects")
@@ -22,5 +21,10 @@ public class SubjectController {
     public String createSubject(@RequestBody SubjectDto subjectDto) {
         subjectService.create(subjectDto);
         return "CREATE SUCCESS!";
+    }
+
+    @GetMapping
+    public List<SubjectDto> getAllSubject() {
+        return subjectService.getAll();
     }
 }

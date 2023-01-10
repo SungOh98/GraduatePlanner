@@ -26,4 +26,10 @@
         <result property="year" column="year"/>
         <result property="departmentName" column="departmentName"/>
     </resultMap>
+
+
+    <select id="getByAccount" resultType="org.example.domain.Student">
+        SELECT * FROM student
+            WHERE account = #{account}
+    </select>
 </mapper>

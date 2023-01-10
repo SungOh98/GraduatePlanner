@@ -9,4 +9,21 @@
     </insert>
 
 
+    <select id="getAll" resultMap="allSubject">
+        SELECT credit, type, name
+            FROM subject
+    </select>
+
+    <resultMap id="allSubject" type="org.example.dto.SubjectDto">
+        <result property="credit" column="credit"/>
+        <result property="type" column="type"/>
+        <result property="name" column="name"/>
+    </resultMap>
+
+    <select id="getByName" resultType="org.example.domain.Subject">
+        SELECT * FROM subject
+            WHERE name = #{name}
+    </select>
+
+
 </mapper>

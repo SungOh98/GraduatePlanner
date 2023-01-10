@@ -10,6 +10,8 @@ import java.util.List;
 public interface StudentService {
     void createStudent(StudentDto studentDto);
     List<Student> getAllStudent();
+
+    Student getStudentByAccount(String account);
     void updateStudent();
     void deleteStudent();
 }
