@@ -12,4 +12,8 @@ public interface StudentMapper {
     List<Student> getAll();
 
     Student getByAccount(String account);
+
+    void update(Student student);
+
+    Student getById(Long id);
 }

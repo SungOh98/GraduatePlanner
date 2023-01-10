@@ -2,10 +2,12 @@ package org.example.dto;
 
 import lombok.Data;
 
+import java.util.List;
+
 // department - subject에 매핑되는 DTO
 @Data
 public class RequireDto {
     // association
-    private DepartmentDto departmentDto;
-    private SubjectDto subjectDto;
+    private String departmentName;
+    private List<SubjectDto> subjectList;
 }

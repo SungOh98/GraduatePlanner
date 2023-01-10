@@ -32,4 +32,18 @@
         SELECT * FROM student
             WHERE account = #{account}
     </select>
+
+    <update id="update"  parameterType="org.example.domain.Student">
+        UPDATE student SET current_credits = #{current_credits},
+                           account = #{account},
+                           password = #{password},
+                           student_number = #{student_number},
+                           name = #{name},
+                           year = #{year},
+                           department_id = #{department_id} WHERE id = #{id}
+    </update>
+
+    <select id="getById" parameterType="Long" resultType="org.example.domain.Student">
+        SELECT * FROM student WHERE id = #{id}
+    </select>
 </mapper>

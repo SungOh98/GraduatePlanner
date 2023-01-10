@@ -42,8 +42,22 @@ public class StudentServiceImpl implements StudentService {
         return studentMapper.getByAccount(account);
     }
 
-    public void updateStudent() {
+    public void updateStudent(StudentDto studentDto, Long id) {
+        Student student = new Student();
+        student.setId(id);
+        student.setCurrent_credits(studentDto.getCurrent_credits());
+        student.setAccount(studentDto.getAccount());
+        student.setStudent_number(studentDto.getStudent_number());
+        student.setName(studentDto.getName());
+        student.setYear(studentDto.getYear());
+        student.setDepartment_id(student.getDepartment_id());
+        student.setPassword(studentDto.getPassword());
+        studentMapper.update(student);
+    }
 
+    @Override
+    public Student getById(Long id) {
+        return studentMapper.getById(id);
     }
 
     public void deleteStudent() {

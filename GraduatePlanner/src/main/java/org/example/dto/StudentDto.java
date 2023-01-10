@@ -14,8 +14,6 @@ public class StudentDto {
     private String student_number;
     private String name;
     private int year;
-    // association 구현
-//    private DepartmentDto departmentDto;
     private String departmentName;
 
 }

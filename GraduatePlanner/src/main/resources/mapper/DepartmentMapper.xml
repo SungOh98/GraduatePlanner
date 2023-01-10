@@ -8,4 +8,17 @@
         VALUES (#{name}, #{major_credit}, #{general_credit})
     </insert>
 
+    <select id="getByName" parameterType="String" resultType="org.example.domain.Department">
+        SELECT * FROM department WHERE name = #{name}
+    </select>
+
+    <insert id="createRequire" parameterType="org.example.domain.Require">
+        INSERT INTO department_subject
+            (subject_id, department_id)
+        VALUES (#{subject_id}, #{department_id})
+    </insert>
+
+    <select id="getById" parameterType="Long" resultType="org.example.domain.Department">
+        SELECT * FROM department WHERE id = #{id}
+    </select>
 </mapper>

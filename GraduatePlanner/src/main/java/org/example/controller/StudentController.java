@@ -42,8 +42,10 @@ public class StudentController {
     /**
      * Update : 학생 수정 요청
      */
-    @PutMapping
-    public void updateStudent() {}
+    @RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
+    public void updateStudent(@RequestBody StudentDto studentDto, @PathVariable Long id) {
+        studentService.updateStudent(studentDto, id);
+    }
 
     /**
      *  Delete : 학생 삭제 요청

@@ -6,6 +6,7 @@ import org.example.domain.Subject;
 import org.example.dto.RegiDto;
 import org.example.dto.RegisterDto;
 import org.example.repository.RegisterMapper;
+import org.example.repository.StudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
@@ -18,12 +19,14 @@ public class RegisterServiceImpl implements RegisterService{
     private final RegisterMapper registerMapper;
     private final StudentService studentService;
     private final SubjectService subjectService;
+    private final StudentMapper studentMapper;
 
     @Autowired
-    public RegisterServiceImpl(RegisterMapper registerMapper, StudentService studentService, SubjectService subjectService) {
+    public RegisterServiceImpl(RegisterMapper registerMapper, StudentService studentService, SubjectService subjectService, StudentMapper studentMapper) {
         this.registerMapper = registerMapper;
         this.studentService = studentService;
         this.subjectService = subjectService;
+        this.studentMapper = studentMapper;
     }
 
     /**
@@ -37,19 +40,25 @@ public class RegisterServiceImpl implements RegisterService{
         String account = regiDto.getAccount();
 
         // 과목 리스트
-        List<Subject> subjectList = new ArrayList<Subject>();
+        List<Subject> subjectList = new ArrayList<>();
+
         for (String subjectName : subjectNames) {
             subjectList.add(subjectService.getByName(subjectName));
         }
         // 학생 객체
         Student student = studentService.getStudentByAccount(account);
 
+        int plus_credit = 0;
         for (Subject subject : subjectList) {
             Register register = new Register();
             register.setSubject_id(subject.getId());
             register.setStudent_id(student.getId());
+            plus_credit += subject.getCredit();
             registerMapper.register(register);
         }
+        // 해당 학생의 현재 획득 학점 갱신
+        student.setCurrent_credits(student.getCurrent_credits() + plus_credit);
+        studentMapper.update(student);
     }
 
     public RegisterDto findAllSubject(Long id) {
