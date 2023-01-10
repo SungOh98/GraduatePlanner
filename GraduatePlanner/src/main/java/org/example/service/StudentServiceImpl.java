@@ -12,10 +12,12 @@ import java.util.List;
 @Service
 public class StudentServiceImpl implements StudentService {
     private final StudentMapper studentMapper;
+    private final DepartmentService departmentService;
 
     @Autowired
-    public StudentServiceImpl(StudentMapper studentMapper) {
+    public StudentServiceImpl(StudentMapper studentMapper, DepartmentService departmentService) {
         this.studentMapper = studentMapper;
+        this.departmentService = departmentService;
     }
 
     public void createStudent(StudentDto studentDto) {
@@ -26,7 +28,6 @@ public class StudentServiceImpl implements StudentService {
         student.setPassword(studentDto.getPassword());
         student.setName(studentDto.getName());
         student.setYear(studentDto.getYear());
-        // 추후에 부서 DB랑 연동 후 변경해야 함. : 1번이 컴공이라고 가정
         student.setDepartment_id(1);
 
         // repository 객체로 DB에 학생 생성하여 저장.

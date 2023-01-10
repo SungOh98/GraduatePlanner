@@ -27,8 +27,9 @@ public class StudentController {
      * json 객체를 받아 DTO로 변경 후 Service로 넘겨줌.
      */
     @PostMapping
-    public void createStudent(@RequestBody StudentDto studentDto) {
+    public String createStudent(@RequestBody StudentDto studentDto) {
         studentService.createStudent(studentDto);
+        return "Create SUCCESS!";
     }
 
     /**
