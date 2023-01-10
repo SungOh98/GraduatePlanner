@@ -1,8 +1,7 @@
 package org.example.dto;
 
 import lombok.Data;
-import org.example.domain.Student;
-import org.example.domain.Subject;
+
 
 import java.util.List;
 

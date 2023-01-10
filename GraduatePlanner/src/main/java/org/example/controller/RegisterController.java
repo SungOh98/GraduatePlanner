@@ -32,8 +32,8 @@ public class RegisterController {
     }
 
     @GetMapping
-    public RegisterDto getSubjectByType(@RequestParam Long id,@RequestParam String type) {
-        return registerService.findSubjectByType(id, type);
+    public RegisterDto getSubjectByType(@RequestParam Long student_id,@RequestParam String type) {
+        return registerService.findSubjectByType(student_id, type);
     }
 
 

@@ -8,6 +8,7 @@ import java.util.List;
 @Repository
 public interface StudentMapper {
     void create(Student student);
+
     List<Student> getAll();
 
     Student getByAccount(String account);

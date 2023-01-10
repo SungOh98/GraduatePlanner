@@ -5,7 +5,6 @@ import org.example.domain.Student;
 import org.example.domain.Subject;
 import org.example.dto.RegiDto;
 import org.example.dto.RegisterDto;
-import org.example.dto.SubjectDto;
 import org.example.repository.RegisterMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
