@@ -1,5 +1,5 @@
 
 out
-.idea
-target
+.idea/
+target/
 GraduatePlanner/src/main/resources/mybatis/config.properties
