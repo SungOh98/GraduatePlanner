@@ -4,7 +4,6 @@ import org.example.dto.RegiDto;
 import org.example.dto.RegisterDto;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 @Service
 public interface RegisterService {

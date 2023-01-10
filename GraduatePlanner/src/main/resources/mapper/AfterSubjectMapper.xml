@@ -4,8 +4,9 @@
 <mapper namespace="org.example.repository.AfterSubjectMapper">
     <select id="getRequire" parameterType="Long" resultMap="allRequireSubjects">
         SELECT s.credit, s.type, s.name
-        FROM department_subject r JOIN department d ON d.id = r.department_id and d.id = #{department_id}
-                               JOIN subject s ON s.id = r.subject_id
+        FROM department_subject r
+                 JOIN department d ON d.id = r.department_id and d.id = #{department_id}
+                 JOIN subject s ON s.id = r.subject_id
         ORDER BY s.id
     </select>
     <resultMap id="allRequireSubjects" type="org.example.dto.RequireDto">

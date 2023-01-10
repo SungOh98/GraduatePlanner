@@ -12,6 +12,7 @@ import java.util.List;
 public class SubjectController {
 
     private final SubjectService subjectService;
+
     @Autowired
     public SubjectController(SubjectService subjectService) {
         this.subjectService = subjectService;

@@ -4,7 +4,6 @@ import org.example.domain.Register;
 import org.example.dto.RegisterDto;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 
 @Repository
 public interface RegisterMapper {

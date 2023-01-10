@@ -9,7 +9,9 @@
     </insert>
 
     <select id="getByName" parameterType="String" resultType="org.example.domain.Department">
-        SELECT * FROM department WHERE name = #{name}
+        SELECT *
+        FROM department
+        WHERE name = #{name}
     </select>
 
     <insert id="createRequire" parameterType="org.example.domain.Require">
@@ -19,6 +21,8 @@
     </insert>
 
     <select id="getById" parameterType="Long" resultType="org.example.domain.Department">
-        SELECT * FROM department WHERE id = #{id}
+        SELECT *
+        FROM department
+        WHERE id = #{id}
     </select>
 </mapper>

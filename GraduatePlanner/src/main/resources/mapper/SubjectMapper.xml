@@ -4,14 +4,14 @@
 <mapper namespace="org.example.repository.SubjectMapper">
     <insert id="create" parameterType="org.example.domain.Subject">
         INSERT INTO subject
-        (credit, type, name)
+            (credit, type, name)
         VALUES (#{credit}, #{type}, #{name})
     </insert>
 
 
     <select id="getAll" resultMap="allSubject">
         SELECT credit, type, name
-            FROM subject
+        FROM subject
     </select>
 
     <resultMap id="allSubject" type="org.example.dto.SubjectDto">
@@ -21,8 +21,9 @@
     </resultMap>
 
     <select id="getByName" resultType="org.example.domain.Subject">
-        SELECT * FROM subject
-            WHERE name = #{name}
+        SELECT *
+        FROM subject
+        WHERE name = #{name}
     </select>
 
 

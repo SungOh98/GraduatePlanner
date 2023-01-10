@@ -9,12 +9,13 @@ import org.example.repository.RegisterMapper;
 import org.example.repository.StudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class RegisterServiceImpl implements RegisterService{
+public class RegisterServiceImpl implements RegisterService {
 
     private final RegisterMapper registerMapper;
     private final StudentService studentService;
@@ -30,7 +31,6 @@ public class RegisterServiceImpl implements RegisterService{
     }
 
     /**
-     *
      * @param regiDto : json으로 받은 객체임 멤버 변수로 계정 이름(String) 과 신청 과목들(List<String>)이 있음
      */
     public void register(RegiDto regiDto) {

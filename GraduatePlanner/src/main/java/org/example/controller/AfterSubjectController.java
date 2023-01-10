@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.*;
 public class AfterSubjectController {
 
     private final AfterSubjectService afterSubjectService;
+
     @Autowired
     public AfterSubjectController(AfterSubjectService afterSubjectService) {
         this.afterSubjectService = afterSubjectService;
     }
 
     @GetMapping("/after-subject")
-    public AfterSubjectDto getAfterSubjectByType(@RequestParam String type, @RequestParam Long id, @RequestParam Long department_id){
+    public AfterSubjectDto getAfterSubjectByType(@RequestParam String type, @RequestParam Long id, @RequestParam Long department_id) {
         return afterSubjectService.getAfterSubject(type, id, department_id);
     }
 

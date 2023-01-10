@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class DepartmentServiceImpl implements DepartmentService{
+public class DepartmentServiceImpl implements DepartmentService {
 
     private final DepartmentMapper departmentMapper;
     private final SubjectService subjectService;
@@ -36,7 +36,7 @@ public class DepartmentServiceImpl implements DepartmentService{
     @Override
     public void createRequire(RequDto requDto) {
         Department department = getDepartmentByName(requDto.getDepartmentName());
-        for (String subjectName : requDto.getSubjectNames()){
+        for (String subjectName : requDto.getSubjectNames()) {
             Subject subject = subjectService.getByName(subjectName);
             Require require = new Require();
             require.setSubject_id(subject.getId());

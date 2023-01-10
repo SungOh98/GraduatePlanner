@@ -8,15 +8,15 @@
         VALUES (#{subject_id}, #{student_id})
     </insert>
 
-<!--    join 쿼리로 resultMap 만들기-->
+    <!--    join 쿼리로 resultMap 만들기-->
     <select id="getAllType" parameterType="Long" resultMap="allTypeSubjects">
- <!--     먼저 student와 student_subject를 Join -->
+        <!--     먼저 student와 student_subject를 Join -->
         SELECT s.name studentName, s.student_number, s.current_credits, j.*
-            from student_subject r join student s ON s.id = r.student_id and s.id = #{id}
-                                    join subject j ON j.id = r.subject_id
-            ORDER BY j.id
+        from student_subject r join student s ON s.id = r.student_id and s.id = #{id}
+        join subject j ON j.id = r.subject_id
+        ORDER BY j.id
     </select>
-<!--    resultMap을 DTO에 담기-->
+    <!--    resultMap을 DTO에 담기-->
     <resultMap id="allTypeSubjects" type="org.example.dto.RegisterDto">
         <result property="studentName" column="studentName"/>
         <result property="student_number" column="student_number"/>

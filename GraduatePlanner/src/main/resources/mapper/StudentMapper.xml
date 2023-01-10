@@ -4,20 +4,21 @@
 <mapper namespace="org.example.repository.StudentMapper">
     <insert id="create" parameterType="org.example.domain.Student">
         INSERT INTO student
-            (current_credits, account, password, student_number, name, year, department_id)
+        (current_credits, account, password, student_number, name, year, department_id)
         VALUES (#{current_credits}, #{account}, #{password}, #{student_number}, #{name}, #{year}, #{department_id})
     </insert>
 
-<!--    쿼리날리고 resultMap 생성-->
+    <!--    쿼리날리고 resultMap 생성-->
     <select id="getAll" resultMap="studentWithDepartment">
         select s.*, d.name departmentName
-        from student s join department d
-        on d.id = s.department_id
+        from student s
+                 join department d
+                      on d.id = s.department_id
         order by s.id
     </select>
-<!--    결과를 studentDTO에 채우기-->
+    <!--    결과를 studentDTO에 채우기-->
     <resultMap id="studentWithDepartment" type="org.example.dto.StudentDto">
-<!--        <id property="id" column="id" />-->
+        <!--        <id property="id" column="id" />-->
         <result property="current_credits" column="current_credits"/>
         <result property="student_number" column="student_number"/>
         <result property="account" column="account"/>
@@ -29,21 +30,26 @@
 
 
     <select id="getByAccount" resultType="org.example.domain.Student">
-        SELECT * FROM student
-            WHERE account = #{account}
+        SELECT *
+        FROM student
+        WHERE account = #{account}
     </select>
 
-    <update id="update"  parameterType="org.example.domain.Student">
-        UPDATE student SET current_credits = #{current_credits},
-                           account = #{account},
-                           password = #{password},
-                           student_number = #{student_number},
-                           name = #{name},
-                           year = #{year},
-                           department_id = #{department_id} WHERE id = #{id}
+    <update id="update" parameterType="org.example.domain.Student">
+        UPDATE student
+        SET current_credits = #{current_credits},
+            account         = #{account},
+            password        = #{password},
+            student_number  = #{student_number},
+            name            = #{name},
+            year            = #{year},
+            department_id   = #{department_id}
+        WHERE id = #{id}
     </update>
 
     <select id="getById" parameterType="Long" resultType="org.example.domain.Student">
-        SELECT * FROM student WHERE id = #{id}
+        SELECT *
+        FROM student
+        WHERE id = #{id}
     </select>
 </mapper>

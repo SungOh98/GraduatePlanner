@@ -12,12 +12,11 @@ import java.util.List;
 @Service
 public class StudentServiceImpl implements StudentService {
     private final StudentMapper studentMapper;
-    private final DepartmentService departmentService;
 
     @Autowired
-    public StudentServiceImpl(StudentMapper studentMapper, DepartmentService departmentService) {
+    public StudentServiceImpl(StudentMapper studentMapper) {
         this.studentMapper = studentMapper;
-        this.departmentService = departmentService;
+
     }
 
     public void createStudent(StudentDto studentDto) {

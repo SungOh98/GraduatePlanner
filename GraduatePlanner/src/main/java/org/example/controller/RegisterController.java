@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
-
 @RestController
 @RequestMapping("/student-subjects")
 public class RegisterController {
@@ -32,10 +31,9 @@ public class RegisterController {
     }
 
     @GetMapping
-    public RegisterDto getSubjectByType(@RequestParam Long student_id,@RequestParam String type) {
+    public RegisterDto getSubjectByType(@RequestParam Long student_id, @RequestParam String type) {
         return registerService.findSubjectByType(student_id, type);
     }
-
 
 
 }
