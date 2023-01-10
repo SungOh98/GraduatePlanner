@@ -12,4 +12,6 @@ public interface RegisterService {
     void register(RegiDto regiDto);
 
     RegisterDto findAllSubject(Long id);
+
+    RegisterDto findSubjectByType(Long id, String type);
 }

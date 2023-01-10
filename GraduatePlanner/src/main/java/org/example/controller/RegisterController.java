@@ -7,7 +7,7 @@ import org.example.service.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+
 
 @RestController
 @RequestMapping("/student-subjects")
@@ -30,6 +30,12 @@ public class RegisterController {
     public RegisterDto getAllSubject(@PathVariable("student-id") Long id) {
         return registerService.findAllSubject(id);
     }
+
+    @GetMapping
+    public RegisterDto getSubjectByType(@RequestParam Long id,@RequestParam String type) {
+        return registerService.findSubjectByType(id, type);
+    }
+
 
 
 }

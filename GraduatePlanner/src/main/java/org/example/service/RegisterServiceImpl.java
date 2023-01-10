@@ -5,11 +5,13 @@ import org.example.domain.Student;
 import org.example.domain.Subject;
 import org.example.dto.RegiDto;
 import org.example.dto.RegisterDto;
+import org.example.dto.SubjectDto;
 import org.example.repository.RegisterMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class RegisterServiceImpl implements RegisterService{
@@ -54,4 +56,16 @@ public class RegisterServiceImpl implements RegisterService{
     public RegisterDto findAllSubject(Long id) {
         return registerMapper.getAllType(id);
     }
+
+    public RegisterDto findSubjectByType(Long id, String type) {
+        RegisterDto registerDto = registerMapper.getAllType(id);
+        registerDto.setSubjects(
+                registerDto.getSubjects()
+                        .stream()
+                        .filter(a -> a.getType().equals(type))
+                        .collect(Collectors.toList())
+        );
+        return registerDto;
+    }
+
 }
